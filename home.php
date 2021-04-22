@@ -32,7 +32,7 @@ session_start();
 			<ul class="logreg">
 <!--				<li><a href="#">Login </a> </li>-->
 <!--				<li><a href="#"><span class="register">Register</span></a></li>-->
-                <?php echo $_SESSION['name']; ?>
+<!--                --><?php //echo $_SESSION['name']; ?>
 			</ul>
 	</div>
 	<!-- Navbar Up -->
@@ -71,7 +71,14 @@ session_start();
 					<a href="contact.html">CONTACT</a>
  
 				</li>
-				<button><span class="postnewcar">POST NEW CAR</span></button>
+
+                <li>
+                    <a href="logout.php">Logout</a>
+                </li>
+                <li>
+                    <a href="profile.php">Profile</a>
+                </li>
+                <button><span class="postnewcar">POST NEW CAR</span></button>
 			</ul>
 		</div>
 	</nav>

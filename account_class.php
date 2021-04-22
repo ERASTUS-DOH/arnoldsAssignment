@@ -451,13 +451,10 @@ class Account
 
     public function logout()
     {
-        /* Global $pdo object */
-        global $pdo;
-
         /* If there is no logged in user, do nothing */
-        if (is_null($this->id)) {
-            return;
-        }
+//        if (is_null($this->account_id)) {
+//            return;
+//        }
 
         /* Reset the account-related properties */
         $this->account_id = NULL;
@@ -471,14 +468,14 @@ class Account
         if (session_status() == PHP_SESSION_ACTIVE) {
             /* Delete query */
             $query = 'DELETE FROM account_sessions WHERE (session_id = :sid)';
-
             /* Values array for PDO */
             $values = array(':sid' => session_id());
-
             /* Execute the query */
             try {
                 $res = $this->pdo->prepare($query);
                 $res->execute($values);
+
+                return true;
             } catch (PDOException $e) {
                 /* If there is a PDO exception, throw a standard exception */
                 throw new Exception('Database query error');
